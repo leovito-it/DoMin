@@ -71,12 +71,6 @@ public:
 
 		return arr;
 	}
-
-	static int getRandomNumber(int a, int b)
-	{
-		srand(time(NULL)); // Khởi tạo seed cho hàm rand
-		return rand() % (b - a + 1) + a; // Trả về giá trị random trong khoảng [a, b]
-	}
 };
 
 #endif

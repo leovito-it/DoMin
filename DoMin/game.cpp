@@ -119,12 +119,16 @@ void Game::initMine()
 {
 	int count = 0;
 
+	random_device rd; // Tạo một seed ngẫu nhiên từ thiết bị phần cứng
+	mt19937 gen(rd()); // Tạo một generator
+	uniform_int_distribution<> dis(0, DEFINE::totalCell); // Tạo một phân phối ngẫu nhiên trong khoảng [a, b]
+
 	for (int i = 0; i < numMine; i++)
 	{
 		int randomIndex = 0;
 		do
 		{
-			randomIndex = DEFINE::getRandomNumber(0, DEFINE::totalCell);
+			randomIndex = dis(gen);
 		} while (DEFINE::isInArray(mineIndex, numMine, randomIndex));
 
 		mineIndex[count++] = randomIndex;
